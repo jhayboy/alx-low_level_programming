@@ -1,28 +1,27 @@
-#include <stdio.h>
-#include <ctype.h>
+#include "main.h"
 
-int string_to_integer(char *str) {
-    int result = 0;
-    int sign = 1;
+/**
+ * _atoi - converts string to integer
+ *
+ * @s: string to be converted
+ *
+ * Return: 0 or a convareted integer from string
+ */
 
-    // Check for negative sign
-    if (*str == '-') {
-        sign = -1;
-        str++;
-    }
+int _atoi(char *s)
+{
+	int a = 1;
+	unsigned int b = 0;
 
-    // Iterate through the string
-    while (*str != '\0') {
-        // Check for invalid characters
-        if (!isdigit(*str)) {
-            printf("Error: invalid character in string\n");
-            return 0;
-        }
-        // Multiply the result by 10 and add the current digit
-        result = result * 10 + (*str - '0');
-        str++;
-    }
+	do {
+		if (*s == '-')
+			a *= -1;
 
-    return sign * result;
+		else if (*s >= '0' && *s <= '9')
+			b = (b * 10) + (*s - '0');
+
+		else if (b > 0)
+			break;
+	} while (*s++);
+	return (b * a);
 }
-
