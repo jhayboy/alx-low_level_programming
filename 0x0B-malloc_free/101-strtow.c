@@ -1,4 +1,4 @@
-#include "main.h"
+i#include "main.h"
 
 /**
  * strtow - a function that splits a string into words.
